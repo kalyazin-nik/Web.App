@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "List Tasks";
+}
+
+<div>
+    <h2>Создание новой задачи</h2><br />
+</div>
+
+<div>
+    <form method="post">
+        <div class="form-group">
+            <label for="name">Название</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="form-group">
+            <label for="description">Оаисание</label>
+            <input type="text" class="form-control" name="description">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Создать</button>
+    </form>
+</div>
+
+@*  action="@Url.Action("Create", "TaskTable")" *@

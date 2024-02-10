@@ -1,0 +1,55 @@
+﻿@model List<TaskTableModel>;
+@{
+    ViewData["Title"] = "List Tasks";
+}
+
+<div>
+    <h2>Список задач</h2><br />
+    <a class="btn btn-primary btn-sm" href="/TaskTable/Create">Создать задачу</a><br />
+</div>
+<div>
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Статус</th>
+            <th>Дата создания</th>
+            <th>Дата поступления в работу</th>
+            <th>Дата окончания</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.StatusName</td>
+                <td>@item.CreatedAt</td>
+                <td>@item.InWorking</td>
+                <td>@item.ComplitedAt</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div>
+
+    <asp:gridview id="CustomersGridView"
+                  datasourceid="@Model"
+                  autogeneratecolumns="False"
+                  emptydatatext="No data available."
+                  allowpaging="True"
+                  @* runat="server" *@ DataKeyNames="Id">
+        <Columns>
+            <asp:BoundField DataField="Id" HeaderText="Id"
+                            InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+            <asp:BoundField DataField="Name" HeaderText="Name"
+                            SortExpression="Name" />
+            <asp:BoundField DataField="Description" HeaderText="Description"
+                            SortExpression="Description" />
+            <asp:BoundField DataField="StatusName" HeaderText="StatusName"
+                            SortExpression="StatusName" />
+        </Columns>
+    </asp:gridview>
+</div>
