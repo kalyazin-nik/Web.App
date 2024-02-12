@@ -7,7 +7,6 @@ namespace Database
     {
         public DbSet<Task> Tasks { get; set; } = null!;
         public DbSet<Status> Statuses { get; set; } = null!;
-        public DbSet<Identifier> Identifiers { get; set; } = null!;
 
         public DataContext(DbContextOptions options) : base(options) { }
 
@@ -15,7 +14,6 @@ namespace Database
         {
             ChangeEntityForDatabase<Task>(modelBuilder);
             ChangeEntityForDatabase<Status>(modelBuilder);
-            ChangeEntityForDatabase<Identifier>(modelBuilder);
         }
 
         private static void ChangeEntityForDatabase<TEntity>(ModelBuilder modelBuilder) where TEntity : BaseEntity

@@ -17,6 +17,8 @@ namespace Entities
             StatusName = statusName;
         }
 
+        public Status() { }
+
         private void AssignValue(string value)
         {
             if (_statuses.Contains(value)) _statusName = value;

@@ -1,0 +1,53 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "List Tasks";
+}
+
+<div>
+    <h2>Обновление задачи</h2><br />
+</div>
+
+<div>
+    <form method="post" action="/TaskTable/UpdateTask">
+        <div class="form-group">
+            <input type="hidden" name="id" value="@Model[0]" />
+        </div>
+        <div class="form-group">
+            <label for="name">Название</label>
+            <input type="text" class="form-control" name="name" value="@Model[1]">
+        </div>
+        <div class="form-group">
+            <label for="description">Оаисание</label>
+            <input type="text" class="form-control" name="description" value="@Model[2]">
+        </div>
+        <div class="form-group">
+            <label for="statusName">Статус задачи</label>
+            <select class="form-select form-control" name="statusName">
+                @{
+                    if (Model[3] == "Создана")
+                    {
+                        <option selected>Создана</option>
+                        <option>В работе</option>
+                        <option>Завершена</option>
+                    }
+                    else if (Model[3] == "В работе")
+                    {
+                        <option>Создана</option>
+                        <option selected>В работе</option>
+                        <option>Завершена</option>
+                    }
+                    else if (Model[3] == "Завершена")
+                    {
+                        <option>Создана</option>
+                        <option>В работе</option>
+                        <option selected>Завершена</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="statusId" value="@Model[4]" />
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Изменить</button>
+    </form>
+</div>

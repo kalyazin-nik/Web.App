@@ -16,8 +16,14 @@
             <label for="description">Оаисание</label>
             <input type="text" class="form-control" name="description">
         </div>
+        <div class="form-group">
+            <label for="statusName">Статус задачи</label>
+            <select class="form-select form-control" name="statusName">
+                <option selected>Создана</option>
+                <option>В работе</option>
+                <option>Завершена</option>
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary mb-2">Создать</button>
     </form>
 </div>
-
-@*  action="@Url.Action("Create", "TaskTable")" *@

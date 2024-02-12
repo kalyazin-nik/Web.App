@@ -11,8 +11,7 @@ namespace Database
         private readonly static Dictionary<string, string> _tableNames = new Dictionary<string, string>()
         {
             { "Task", "tasks" },
-            { "Status", "statuses" },
-            { "Identifier", "identifiers" }
+            { "Status", "statuses" }
         };
         private readonly static Dictionary<string, EntityInfo> _entityInfo = new Dictionary<string, EntityInfo>()
         {
@@ -20,11 +19,7 @@ namespace Database
             { "Name", new EntityInfo ("Name", "name", "varchar(30)") },
             { "Description", new EntityInfo("Description", "description", "text") },
             { "StatusId", new EntityInfo("StatusId", "status_id") },
-            { "StatusName", new EntityInfo("StatusName", "status_name", "varchar(9)", "('Создана')") },
-            { "IdentifierId", new EntityInfo("IdentifierId", "identifier_id") },
-            { "CreatedAt", new EntityInfo("CreatedAt", "created_at", "timestamp", "CURRENT_TIMESTAMP") },
-            { "InWorking", new EntityInfo("InWorking", "in_working", "timestamp") },
-            { "ComplitedAt", new EntityInfo("ComplitedAt", "complited_at", "timestamp") }
+            { "StatusName", new EntityInfo("StatusName", "status_name", "varchar(9)", "('Создана')") }
         };
         private readonly static Dictionary<string, Constraint> _constraints = new Dictionary<string, Constraint>()
         {
