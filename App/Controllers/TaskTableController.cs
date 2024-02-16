@@ -32,6 +32,11 @@ namespace App.Controllers
             return View(_models);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Create(string name, string description, string statusName)
         {
